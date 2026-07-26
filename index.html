@@ -211,6 +211,23 @@
             © PickDeal. All rights reserved.
         </footer>
     </div>
+<!-- 검색 기능 자바스크립트 -->
+<script>
+    const searchInput = document.querySelector('.search-bar input');
+    const productCards = document.querySelectorAll('.product-card');
 
+    searchInput.addEventListener('keyup', function(e) {
+        const value = e.target.value.toLowerCase().trim();
+
+        productCards.forEach(card => {
+            const title = card.querySelector('.product-title').textContent.toLowerCase();
+            if (title.includes(value)) {
+                card.style.display = 'block'; // 검색어 일치 시 보여줌
+            } else {
+                card.style.display = 'none';  // 불일치 시 숨김
+            }
+        });
+    });
+</script>
 </body>
 </html>
